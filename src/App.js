@@ -1,19 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import styled from 'styled-components';
+import Header from './components/layout/Header';
+import Content from './components/layout/Content';
 
-const AppDiv = styled('div')`
+const Layout = styled('div')`
   display: flex;
-  color: black;
+  color: white;
+  background: black;
 `
 
 const App = () => {
   return (
-    <AppDiv>
-      <header>
+    <Layout>
+      <Header>
         <p> Hello There!</p>
-      </header>
-    </AppDiv>
+      </Header>
+      <Content ></Content>
+    </Layout>
   )
 }
 
