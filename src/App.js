@@ -12,10 +12,8 @@ const Layout = styled('div')`
 const App = () => {
   return (
     <Layout>
-      <Header>
-        <p> Hello There!</p>
-      </Header>
-      <Content ></Content>
+      <Header/>
+      <Content/>
     </Layout>
   )
 }
