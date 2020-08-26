@@ -14,7 +14,6 @@ const Settings = styled('div')`
 
 `;
 
-
 const Header = () => {
     return (
         <StyledHeader data-testid="header">

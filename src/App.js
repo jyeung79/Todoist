@@ -4,10 +4,7 @@ import Header from './components/layout/Header';
 import Content from './components/layout/Content';
 
 const Layout = styled('div')`
-  display: flex;
-  color: white;
-  background: black;
-`
+`;
 
 const App = () => {
   return (
