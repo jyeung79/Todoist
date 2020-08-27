@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MdInvertColors } from 'react-icons/md'
-import styles from '../../styles/styles';
+import BaseStyles from '../../styles/styles';
 
 const StyledHeader = styled('header')`
     border-bottom: solid 1px #ca2100;
-    background-color: ${styles.generic_bg};
+    background-color: ${BaseStyles.generic_bg};
     -webkit-transition: height 200ms ease-in;
     transition: height 200ms ease-in;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -39,13 +39,23 @@ const Navbar = styled('nav')`
     }
 `;
 
+const LogoLayout = styled('div')`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: space-between;
+    
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
 
-const Logo = styled('div')`
-    padding-left: 8px;
-    grid-area: 1 / 1;
+    h1 {
+        margin: 0;
+        color: white;
+    }
 
     img {
         width: 24px;
+        margin-right: 10px;
     }
 `;
 
@@ -58,12 +68,7 @@ const Settings = styled('div')`
       }
 
     ul li {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        ${BaseStyles.va_center}
 
         list-style-type: none;
         cursor: pointer;
@@ -77,34 +82,28 @@ const Settings = styled('div')`
             border-radius: 3px;
             background-color: rgba(255,255,255,0.2);
         }
-
-        .settings__darkmode {
-            button {
-                @include transparent-button();
-                color: white;
-                cursor: pointer;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-        }
     }
 `;
 
-const AddButton = styled('li')`
-    margin-right: 15px;
+const AddButton = styled('button')`
+    ${BaseStyles.transparent_button}
     font-size: 30px;
+    color: white;
+    cursor: pointer;
+`;
 
-    button {
-        background-color: transparent;
-        border: 0;
-        color: white;
-        cursor: pointer;
+const DarkModeButton = styled('button')`
+    ${BaseStyles.transparent_button}
+    color: white;
+    cursor: pointer;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    svg {
+        width: 20px;
+        height: 20px;
     }
 `;
 
@@ -112,21 +111,22 @@ const Header = () => {
     return (
         <StyledHeader data-testid="header">
             <Navbar>
-                <Logo>
+                <LogoLayout>
                     <img src="/images/logo.png" alt="Todoist" />
-                </Logo>
+                    <h1>Todoist</h1>
+                </LogoLayout>
                 <Settings>
                     <ul>
-                        <AddButton>
-                            <button
-                                data-testid="quick-add-task-action"
-                                aria-label="Quick add task"
-                                type="button"
-                            >
+                        <li data-testid="quick-add-task-action">
+                            <AddButton>
                                 +
-                            </button>
-                        </AddButton>
-                        <li><MdInvertColors/></li>
+                            </AddButton>
+                        </li>
+                        <li data-testid="dark-mode-action">
+                            <DarkModeButton>
+                                <MdInvertColors />
+                            </DarkModeButton>
+                        </li>
                     </ul>
                 </Settings>
             </Navbar>
