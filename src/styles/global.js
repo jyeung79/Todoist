@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-box-sizing: inherit;
             box-sizing: inherit;
   }
-  
+
   body {
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   ul {
     margin: 0;
     padding: 0;
